@@ -1,28 +1,45 @@
+<!--
+ * @Descripttion: 开始文件
+ * @version: 1.0.0
+ * @Author: 王凯杰
+ * @Date: 2021-01-18 20:49:21
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2021-01-18 21:57:26
+-->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <combat-header></combat-header>
+      <body class="project_body" >
+          <router-view />
+      </body>
+      <div class="suspension" ></div>
+    <combat-footer></combat-footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() { 
+    return {
+
+    }
   }
 }
 </script>
 
-<style>
+<style lang="less">
+@import url("./assets/css/default.css");
+@import url("./assets/css/color.css");
+@import url("./assets/css/public.css");
+@import url("./assets/css/wangEditor.css");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Microsoft YaHei !important;
+    //-ms-overflow-style: none;
+    //scrollbar-width: none;
+    min-width: 24rem;
+    overflow: hidden;
 }
 </style>
