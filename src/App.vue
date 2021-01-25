@@ -3,8 +3,8 @@
  * @version: 1.0.0
  * @Author: 王凯杰
  * @Date: 2021-01-18 20:49:21
- * @LastEditors: sueRimn
- * @LastEditTime: 2021-01-18 21:57:26
+ * @,@LastEditors: ,: sueRimn
+ * @,@LastEditTime: ,: 2021-01-25 17:48:53
 -->
 <template>
   <div id="app">
@@ -41,5 +41,10 @@ export default {
     //scrollbar-width: none;
     min-width: 24rem;
     overflow: hidden;
+}
+ul,li{
+  list-style: none;
+  padding:0;
+  margin:0;
 }
 </style>

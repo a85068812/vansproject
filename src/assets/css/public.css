@@ -280,7 +280,9 @@
 .fon-wei {
     font-weight: bold;
 }
-
+.fon-wei-impor {
+    font-weight: bold !important; 
+}
 .fon-wei-400 {
     font-weight: 400;
 }
@@ -353,7 +355,7 @@
 .fon-11 {
     font-size: .6rem;
 }
-
+ 
 .fon-12 {
     font-size: 1.2rem;
 }
@@ -382,7 +384,9 @@
 .fon-20 {
     font-size: 2rem;
 }
-
+.fon-21 {
+    font-size: .9rem;
+}
 
 /* 
 ! 基础文字颜色
@@ -426,7 +430,9 @@
 .color-9 {
     color: #999;
 }
-
+.color-58{
+    color: #589BC6;
+}
 
 
 /* 
@@ -907,6 +913,13 @@
 .wid-50 {
     width: 50%;
 }
+.wid-40 {
+    width: 40%;
+}
+.wid-30 {
+    width: 30%;
+}
+
 
 .dis-in {
     display: inline;
@@ -1032,4 +1045,11 @@
 
 .diabled {
     cursor: not-allowed;
+}
+
+/*  
+! 层级权重
+*/
+.z_index {
+    z-index: 99;
 }
