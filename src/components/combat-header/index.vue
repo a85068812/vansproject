@@ -3,8 +3,8 @@
  * @version: 1.0.0
  * @Author: 王凯杰
  * @Date: 2021-01-18 20:58:44
- * @LastEditors: sueRimn
- * @LastEditTime: 2021-01-25 20:53:22
+ * @,@LastEditors: ,: sueRimn
+ * @,@LastEditTime: ,: 2021-01-26 11:18:38
 -->
 <template>
     <div id="header">
@@ -20,7 +20,7 @@
                     </p>
                     <p class="margin-right-2 cursor">
                         <i class="el-icon-s-custom margin-right-05"></i>
-                        <span>登录</span>
+                        <span @click="vansLogin()">登录</span>
                         <strong class="margin-left-right-05">/</strong>
                         <span>注册</span>
                     </p>
@@ -31,7 +31,6 @@
                             <i class="sparent ab" v-if="isShow&&item.id == current"></i>
                         </li>
                         <i class="el-icon-arrow-down fon-04 fon-wei-impor"></i>
-                        <!-- v-if="isShow&&item.id == current" -->
                         <div class="display_box ab z_index" v-if="isShow&&item.id == current">
                             <div class="background_00">         
                                 <div v-for="(theme,themeIndex) in item.datas" :key="themeIndex" class="color-f display_box_content" >      
@@ -160,16 +159,18 @@ export default {
             this.isShow = false;
             this.current = null;
         },
-        changeActives(itemid){
-            console.log(itemid)
-            this.isShow = true;
-            this.current = itemid;
-        },
-        removeActives(itemid){
-            this.isShow = false;
-            this.current = null;
+        /**
+         * @description: 跳转到登录页面
+         * @Version: 1.0.0
+         * @param : {无}
+         * @return: {无}
+         * @author: 王凯杰
+         * @Date: 2021-01-26 11:27:41
+         */
+        vansLogin(){
+            this.$router.push('/vansLogin')
         }
-    },
+    }
 }
 </script>
 <style lang="less" scoped>

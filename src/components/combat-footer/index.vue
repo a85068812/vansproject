@@ -3,8 +3,8 @@
  * @version: 1.0.0
  * @Author: 王凯杰
  * @Date: 2021-01-18 21:02:38
- * @LastEditors: sueRimn
- * @LastEditTime: 2021-01-25 21:40:00
+ * @,@LastEditors: ,: sueRimn
+ * @,@LastEditTime: ,: 2021-01-26 14:22:18
 -->
 <template>
     <div class="background_1c" id="footerMax">
@@ -64,14 +64,17 @@ export default {
 <style lang="less" scoped>
 #footerMax{
     width: 100%;
-    height: auto;
-    position: absolute;
-    bottom: 0;
+    height: 290px;
+    // position: absolute;
+    // bottom: 0;
     .footer{
-        width: 1440px;
+        width: 1288px;
         max-width: 100%;
         margin: 0 auto;
         padding: 30px;
+        position: relative;
+        bottom: 0;
+        height: 290px;
         .foot_l{
             width: 33.33%;
             min-height: 220px;

@@ -4,7 +4,7 @@
  * @Author: 王凯杰
  * @Date: 2021-01-18 20:49:21
  * @,@LastEditors: ,: sueRimn
- * @,@LastEditTime: ,: 2021-01-25 17:48:53
+ * @,@LastEditTime: ,: 2021-01-26 14:29:13
 -->
 <template>
   <div id="app">
@@ -46,5 +46,9 @@ ul,li{
   list-style: none;
   padding:0;
   margin:0;
+}
+.project_body {
+    min-height: 70vh;
+    position: relative;
 }
 </style>
