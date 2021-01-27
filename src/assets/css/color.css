@@ -1,16 +1,20 @@
 .color_c8 {
     color: #C81738;
 }
-
 .color_28 {
     color: #285393;
 }
-
+.color_c9 {
+    color: #c9192e;
+}
 .color_42 {
     color: #426fb1;
 }
 .clor_9b {
     color: #9b9b9b;
+}
+.clor_d2 {
+    color: #d2d2d2;
 }
 .background_00 {
     background: rgba(0,0,0,1)
@@ -18,10 +22,15 @@
 .background_28 {
     background: #285393;
 }
-
 .background_42 {
     background: #426fb1;
 }
 .background_1c{
     background: #1c1c1c;
+}
+.background_f1{
+    background: #F1F2ED;
+}
+.background_ff{
+    background: #ffffff;
 }

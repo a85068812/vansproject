@@ -4,7 +4,7 @@
  * @Author: 王凯杰
  * @Date: 2021-01-26 11:00:02
  * @,@LastEditors: ,: sueRimn
- * @,@LastEditTime: ,: 2021-01-26 14:08:40
+ * @,@LastEditTime: ,: 2021-01-27 15:53:24
  */
 
 export default [
@@ -16,6 +16,16 @@ export default [
             title: '登录',
         },    
         component: () =>
-            import('@/view/login/index.vue')
+            import('@/view/login/login.vue')
+    },
+    {
+        path: '/vansRegister',
+        name: '/vansRegister',
+        keepAlive: true,
+        meta: {
+            title: '注册',
+        },    
+        component: () =>
+            import('@/view/login/register.vue')
     }
 ]

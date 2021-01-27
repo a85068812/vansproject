@@ -4,16 +4,16 @@
  * @Author: 王凯杰
  * @Date: 2021-01-18 20:58:44
  * @,@LastEditors: ,: sueRimn
- * @,@LastEditTime: ,: 2021-01-26 11:18:38
+ * @,@LastEditTime: ,: 2021-01-27 15:51:37
 -->
 <template>
-    <div id="header">
+    <div id="header" ref="pronbit">
         <div class="header_vans flex">   
             <div class="header_left flex flex-bet">
                 <img src="../../assets/header/vans-logo.png" alt="">
             </div>
             <div class="header_right flex flex-col">
-                <div class="header_right_top flex margin-top-1 clor_9b fon-wei">
+                <div class="header_right_top flex margin-top-1 clor_9b fon-wei" v-if="isLogin">
                     <p class="margin-right-2 cursor">
                         <i class="el-icon-shopping-cart-2 margin-right-05"></i>
                         <span>我的购物车</span>
@@ -25,26 +25,29 @@
                         <span>注册</span>
                     </p>
                 </div>
-                <div class="header_right_bpttom flex">
-                    <ul v-for="(item,index) in nav" :key="index" class="flex flex-bet fon-21 cursor" @mouseover="changeActive(item.id)" @mouseleave="removeActive(item.id)">
-                        <li class="margin-right-05 fon-wei  rel" >{{item.title}}
-                            <i class="sparent ab" v-if="isShow&&item.id == current"></i>
-                        </li>
-                        <i class="el-icon-arrow-down fon-04 fon-wei-impor"></i>
-                        <div class="display_box ab z_index" v-if="isShow&&item.id == current">
-                            <div class="background_00">         
-                                <div v-for="(theme,themeIndex) in item.datas" :key="themeIndex" class="color-f display_box_content" >      
-                                    <span>{{theme.themeNew}}</span>
-                                    <div v-for="(titleList,themeIndex) in theme.content" :key="themeIndex">
-                                        <strong >
-                                            {{titleList.titleListNew}}
-                                        </strong>
-                                    </div> 
+                <div :class="style">
+                    <img src="../../assets/header/vans-logo.png" alt="" v-if="isImg">
+                    <div class="header_right_bpttom flex">
+                        <ul v-for="(item,index) in nav" :key="index" class="flex flex-bet fon-21 cursor" @mouseover="changeActive(item.id)" @mouseleave="removeActive(item.id)">
+                            <li class="margin-right-05 fon-wei rel" >{{item.title}}
+                                <i class="sparent ab" v-if="isShow&&item.id == current"></i>
+                            </li>
+                            <i class="el-icon-arrow-down fon-04 fon-wei-impor"></i>
+                            <div class="display_box ab z_index" v-if="isShow&&item.id == current">
+                                <div class="background_00">         
+                                    <div v-for="(theme,themeIndex) in item.datas" :key="themeIndex" class="color-f display_box_content" >      
+                                        <span>{{theme.themeNew}}</span>
+                                        <div v-for="(titleList,themeIndex) in theme.content" :key="themeIndex">
+                                            <strong >
+                                                {{titleList.titleListNew}}
+                                            </strong>
+                                        </div> 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </ul>
-                    <input type="text">
+                        </ul>
+                        <input type="text">
+                    </div>
                 </div>
             </div>
         </div>  
@@ -130,9 +133,15 @@ export default {
                 },
             ],
             isShow:false,
-            isTrue:false,
-            current:0
+            isLogin:true,
+            current:0,
+            scrollHeigh:0,
+            style:'',
+            isImg:false
         }
+    },
+    mounted(){
+         window.addEventListener('scroll',this.handleScrollx,true)
     },
     methods: {
          /**
@@ -169,11 +178,69 @@ export default {
          */
         vansLogin(){
             this.$router.push('/vansLogin')
-        }
+        },
+        /**
+         * @description: 监听滚动条
+         * @Version: 1.0.0
+         * @param : {无}
+         * @return: {无}
+         * @author: 王凯杰
+         * @Date: 2021-01-26 20:54:41
+         */
+        handleScrollx(){
+            console.log('距离顶部高度',this.$refs.pronbit.getBoundingClientRect().top)
+            this.scrollHeigh = this.$refs.pronbit.getBoundingClientRect().top
+            if(this.scrollHeigh <= -70){
+                this.style = 'style'
+                this.isImg = true
+            }else{
+                this.style = "" 
+                this.isImg = false
+            }
+        }   
     }
 }
 </script>
 <style lang="less" scoped>
+// 滚动条到一定高度是触发的样式
+.style{
+    width:100%;
+    position:fixed;
+    top:0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    left: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: inherit;
+    background-color: #fff;
+    img{
+        width: 100px !important;
+        height: 50px !important;
+        margin-top: 5px;
+        margin-left: 25px;
+    }
+    .header_right_bpttom{    
+        height:60px;
+        max-width:1300px;
+        .display_box{
+            width: 100% !important;
+            height: 100px;
+            position: absolute;
+            top: 60px !important;
+            left: 0;
+            .display_box_content{
+                width: 1300px !important;
+                max-width: 1300px !important;
+                margin: 0 auto!important;
+            }
+        }
+        .sparent{
+            position: absolute;
+            top: 15px !important;
+        }
+    }   
+}
 #header{
     width: 100%;
     // background: yellow;
