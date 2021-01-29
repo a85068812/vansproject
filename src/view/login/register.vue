@@ -4,7 +4,7 @@
  * @Author: 王凯杰;
  * @Date: 2021-01-26 18:39:57;
  * @,@LastEditors: ,: sueRimn
- * @,@LastEditTime: ,: 2021-01-27 17:05:55
+ * @,@LastEditTime: ,: 2021-01-28 19:14:33
  -->
 <template>
     <div class="login register">
@@ -21,8 +21,9 @@
                     <el-form-item prop="againPassword">
                         <el-input v-model="registerForm.againPassword" placeholder="请再次输入密码"></el-input>
                     </el-form-item>
-                    <el-form-item prop="verificationCode">
+                    <el-form-item prop="verificationCode" class="verificationCode">
                         <el-input v-model="registerForm.verificationCode" placeholder="请输入验证码"></el-input>
+                        <el-button type="primary" @click="NowVerification" class="verification_button">发送验证码</el-button>
                     </el-form-item>
                     <el-form-item class="login_button register_button">
                         <el-button type="primary" @click="submitForm('ruleForm')" class="first_button">立即注册</el-button>
@@ -57,6 +58,27 @@ export default {
     .register_button{
         .first_button{
             width: 447px !important;
+        }
+    }
+    .verificationCode{
+        .el-form-item__content{
+            display: flex;
+            align-items: center;
+            .el-input{
+                width: 250px !important;
+            }
+            .verification_button{
+                width: 175px;
+                height: 50px;
+                line-height: 50px;
+                border: 0;
+                padding: 0;
+                text-align: center;
+                font-size: 16px;
+                background: #000;
+                margin-left: 20px;
+                border-radius: 0;
+            }
         }
     }
 }

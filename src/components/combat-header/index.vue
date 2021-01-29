@@ -4,7 +4,7 @@
  * @Author: 王凯杰
  * @Date: 2021-01-18 20:58:44
  * @,@LastEditors: ,: sueRimn
- * @,@LastEditTime: ,: 2021-01-27 15:51:37
+ * @,@LastEditTime: ,: 2021-01-28 19:46:47
 -->
 <template>
     <div id="header" ref="pronbit">
@@ -14,16 +14,18 @@
             </div>
             <div class="header_right flex flex-col">
                 <div class="header_right_top flex margin-top-1 clor_9b fon-wei" v-if="isLogin">
-                    <p class="margin-right-2 cursor">
+                    <p class="margin-right-2 cursor my_buy_car">
                         <i class="el-icon-shopping-cart-2 margin-right-05"></i>
                         <span>我的购物车</span>
                     </p>
-                    <p class="margin-right-2 cursor">
+                    <p class="cursor new_my_buy_car">
                         <i class="el-icon-s-custom margin-right-05"></i>
                         <span @click="vansLogin()">登录</span>
-                        <strong class="margin-left-right-05">/</strong>
-                        <span>注册</span>
                     </p>
+                    <strong class="margin-left-right-05">/</strong>
+                    <p class="margin-right-2 cursor my_buy_car">
+                        <span>注册</span>
+                    </p>      
                 </div>
                 <div :class="style">
                     <img src="../../assets/header/vans-logo.png" alt="" v-if="isImg">
@@ -188,7 +190,6 @@ export default {
          * @Date: 2021-01-26 20:54:41
          */
         handleScrollx(){
-            console.log('距离顶部高度',this.$refs.pronbit.getBoundingClientRect().top)
             this.scrollHeigh = this.$refs.pronbit.getBoundingClientRect().top
             if(this.scrollHeigh <= -70){
                 this.style = 'style'
@@ -223,6 +224,9 @@ export default {
     .header_right_bpttom{    
         height:60px;
         max-width:1300px;
+        ul:hover li{
+            color: #c8192e;
+        }
         .display_box{
             width: 100% !important;
             height: 100px;
@@ -258,11 +262,19 @@ export default {
             align-items: flex-end;
             .header_right_top{
                 align-items: flex-end;
+                .my_buy_car:hover span,
+                .new_my_buy_car:hover span,
+                .my_buy_car:hover em{
+                    color: #C9192E;
+                }
             }
             .header_right_bpttom{
                 ul{
                     width: auto;
                     padding: 15px;
+                }
+                ul:hover li{
+                    color: #c8192e;
                 }
                 .display_box{
                     width: 100%;

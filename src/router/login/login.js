@@ -4,7 +4,7 @@
  * @Author: 王凯杰
  * @Date: 2021-01-26 11:00:02
  * @,@LastEditors: ,: sueRimn
- * @,@LastEditTime: ,: 2021-01-27 15:53:24
+ * @,@LastEditTime: ,: 2021-01-28 19:09:25
  */
 
 export default [
@@ -27,5 +27,15 @@ export default [
         },    
         component: () =>
             import('@/view/login/register.vue')
-    }
+    },
+    // {
+    //     path: '/vansRegister',
+    //     name: '/vansRegister',
+    //     keepAlive: true,
+    //     meta: {
+    //         title: '注册',
+    //     },    
+    //     component: () =>
+    //         import('@/view/login/register.vue')
+    // }
 ]
